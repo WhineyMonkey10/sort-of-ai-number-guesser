@@ -10,13 +10,14 @@ def time_convert(sec):
     mins = mins % 60
     return "Time Lapsed = {0}:{1}:{2}".format(int(hours), int(mins),sec)
 
-number2guess = random.randint(1, 1000000)
-show_guesses = input("Do you want it to log all the guesses (spam likely) y/n: ")
-
+numberinput = int(input("How big do you want the range of the number to be: "))
+number2guess = random.randint(1, numberinput)
+show_guesses = input("Do you want it to log all the guesses (spam likely, it will also greatly reduce performance) y/n: ")
+maxnum = numberinput
 guesses = 0
 while True:
     start_time = time.time()
-    computer_guess = random.randint(1, 1000000)
+    computer_guess = random.randint(1, numberinput)
     if show_guesses == 'y':
         print(computer_guess)
     if computer_guess == number2guess:
