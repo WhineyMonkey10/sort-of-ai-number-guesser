@@ -1,8 +1,9 @@
-import random
+import random, math
 import time
 
 # Main
-
+def roundup(x):
+    return int(math.ceil(x / 100.0)) * 100
 def time_convert(sec):
     mins = sec // 60
     sec = sec % 60
@@ -11,9 +12,8 @@ def time_convert(sec):
     return "Time Lapsed = {0}:{1}:{2}".format(int(hours), int(mins),sec)
 
 numberinput = int(input("How big do you want the range of the number to be: "))
-number2guess = random.randint(1, numberinput)
+number2guess = random.randint(1, roundup(numberinput))
 show_guesses = input("Do you want it to log all the guesses (spam likely, it will also greatly reduce performance) y/n: ")
-maxnum = numberinput
 guesses = 0
 while True:
     start_time = time.time()
